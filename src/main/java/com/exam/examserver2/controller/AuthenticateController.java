@@ -25,7 +25,7 @@ import com.exam.examserver2.entity.User;
 import com.exam.examserver2.service.Impl.UserDetailsServiceImpl;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200")
 public class AuthenticateController {
 	
 	@Autowired
@@ -36,6 +36,8 @@ public class AuthenticateController {
 	
 	@Autowired
 	private JwtUtils jwtUtils;
+	
+	
 	
 	//generate token
 	
@@ -57,10 +59,6 @@ public class AuthenticateController {
 		return ResponseEntity.ok(new JwtResponse(token));
 		
 	}
-	
-	
-	
-	
 	private void authenticate(String username, String password) throws Exception {
 		
 		try {
